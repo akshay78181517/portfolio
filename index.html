@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akshay P – AI &amp; Web Developer</title>
+<meta name="description" content="Portfolio of Akshay P, an IT student building AI-powered web applications.">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#07070d;--bg2:#12101c;--text:#ecebf5;--muted:#9a98b0;
+  --glass:rgba(255,255,255,.06);--line:rgba(255,255,255,.12);
+  --accent:#ff3b5c;--accent2:#7c5cff;--glow1:rgba(255,59,92,.28);
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){--bg:#f6f5fb;--bg2:#ebe9f5;--text:#16151f;--muted:#5c5a70;--glass:rgba(255,255,255,.7);--line:rgba(20,20,40,.14);--glow1:rgba(255,59,92,.18)}
+}
+:root[data-theme="dark"]{--bg:#07070d;--bg2:#12101c;--text:#ecebf5;--muted:#9a98b0;--glass:rgba(255,255,255,.06);--line:rgba(255,255,255,.12)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;overflow-x:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;display:block}
+a{color:inherit;text-decoration:none}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 5vw;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav div{display:flex;gap:16px;font-size:.88rem;color:var(--muted);flex-wrap:wrap;justify-content:flex-end}
+nav div a:hover{color:var(--text)}
+section{min-height:100svh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;max-width:1050px;margin:0 auto;padding:90px 5vw 60px}
+h2{font-size:clamp(1.8rem,4vw,2.4rem);margin:0 0 30px}
+h2 span{color:var(--accent)}
+.hero{flex-direction:row;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap-reverse}
+.hero-text{flex:1 1 380px}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--line);border-radius:99px;background:var(--glass);font-size:.82rem;color:var(--muted)}
+.badge i{width:8px;height:8px;border-radius:50%;background:#2ee59d;animation:p 1.6s infinite}
+@keyframes p{50%{opacity:.3;transform:scale(1.5)}}
+h1{font-size:clamp(2.6rem,8vw,4.6rem);line-height:1.05;margin:22px 0 14px}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:1.2rem;max-width:560px;color:var(--muted);margin:0}
+.meta{margin-top:10px;color:var(--muted);font-size:.95rem}
+.btns{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{padding:12px 24px;border-radius:12px;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);font-weight:600;transition:.25s;cursor:pointer;color:inherit;font-size:1rem;font-family:inherit}
+.btn.pri{background:linear-gradient(90deg,var(--accent),var(--accent2));border:0;color:#fff}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px var(--glow1)}
+.avatar{position:relative;width:min(260px,60vw);aspect-ratio:1;border-radius:50%;padding:5px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 60px var(--glow1);cursor:pointer;flex:0 0 auto;margin:0 auto}
+.avatar .in{width:100%;height:100%;border-radius:50%;overflow:hidden;background:var(--bg2);display:grid;place-items:center;font-size:4rem;font-weight:800;color:var(--accent)}
+.avatar img{width:100%;height:100%;object-fit:cover;display:none}
+.avatar small{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);white-space:nowrap;font-size:.75rem;color:var(--muted)}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:22px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:.3s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card h3{margin:0 0 6px;font-size:1.08rem}
+.card p{margin:0 0 12px;color:var(--muted);font-size:.93rem}
+.card p:last-child{margin-bottom:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:.75rem;padding:3px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+.links{margin-top:14px;display:flex;gap:14px;font-size:.85rem;color:var(--accent)}
+.tl{border-left:2px solid var(--line);padding-left:24px;display:grid;gap:20px;max-width:760px}
+.tl .card{position:relative}
+.tl .card::before{content:"";position:absolute;left:-33px;top:26px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+.when{font-size:.8rem;color:var(--accent);margin-bottom:4px}
+.about{max-width:720px;color:var(--muted);font-size:1.08rem}
+.about p{margin:0 0 14px}
+footer{text-align:center;color:var(--muted);padding:30px 5vw 40px;font-size:.85rem}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.show{opacity:1;transform:none}
+#bgpick{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+#bgpanel{display:none;flex-wrap:wrap;gap:6px;max-width:260px;justify-content:flex-end;padding:10px;border-radius:16px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+#bgpanel.open{display:flex}
+#bgpanel button{padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;font-size:.8rem;font-family:inherit}
+#bgpanel button.on{background:linear-gradient(90deg,var(--accent),var(--accent2));border-color:transparent;color:#fff}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.badge i{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<nav><b>AP<span style="color:var(--accent)">.</span></b>
+<div><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#certs">Certificates</a><a href="#contact">Contact</a></div></nav>
+
+<section id="home" class="hero">
+<div class="hero-text">
+<span class="badge"><i></i>Open to internships</span>
+<h1>Hi, I’m <em>Akshay P</em></h1>
+<p class="lead">I build AI-powered web applications.</p>
+<p class="meta">B.Sc. IT student · Generative AI &amp; Python intern · Coimbatore, India</p>
+<div class="btns"><a class="btn pri" href="#projects">View Projects</a><a class="btn" href="#" title="Add your resume PDF link">Download Resume</a></div>
+</div>
+<div class="avatar" id="avatar" title="Click to preview your photo">
+<div class="in"><span id="ini">AP</span><img id="pimg" alt="Akshay P"></div>
+<small>Click to preview your photo</small>
+<input type="file" id="pfile" accept="image/*" hidden>
+</div>
+</section>
+
+<section id="about" class="reveal">
+<h2>About <span>me</span></h2>
+<div class="about">
+<p>I’m an Information Technology student at Sri Ramakrishna College of Arts &amp; Science (expected 2027) who enjoys turning AI into products people can actually use.</p>
+<p>My Generative AI internship at Bluekode produced a RAG-based agent for student performance monitoring. Since then I’ve built a resume screener, a PDF Q&amp;A bot and a marketing content generator.</p>
+<p>I speak Malayalam, Tamil and English, and I’m looking for opportunities to keep building and learning in AI and web development.</p>
+</div>
+</section>
+
+<section id="projects" class="reveal">
+<h2>Featured <span>projects</span></h2>
+<div class="grid">
+<div class="card"><h3>EduPulse</h3><p>RAG-based AI agent that monitors student performance. Internship capstone at Bluekode.</p><div class="tags"><span>RAG</span><span>LLM</span><span>Python</span></div><div class="links"><a href="#">Live demo</a><a href="#">GitHub</a></div></div>
+<div class="card"><h3>AI Resume Screener</h3><p>Screens resumes with an HR chatbot and Make.com automation for forms and sheets.</p><div class="tags"><span>Node.js</span><span>Groq</span><span>Make.com</span></div><div class="links"><a href="#">Live demo</a><a href="#">GitHub</a></div></div>
+<div class="card"><h3>PDF Q&amp;A RAG Bot</h3><p>Ask questions about any PDF and get answers grounded in its content.</p><div class="tags"><span>LangChain</span><span>ChromaDB</span><span>Groq</span></div><div class="links"><a href="#">Live demo</a><a href="#">GitHub</a></div></div>
+<div class="card"><h3>Brand Content Generator</h3><p>Generates marketing content for a brand using LLaMA through Groq.</p><div class="tags"><span>React</span><span>Vite</span><span>Node.js</span></div><div class="links"><a href="#">Live demo</a><a href="#">GitHub</a></div></div>
+</div>
+</section>
+
+<section id="skills" class="reveal">
+<h2>Skills &amp; <span>tools</span></h2>
+<div class="grid">
+<div class="card"><h3>AI &amp; LLMs</h3><div class="tags"><span>Generative AI</span><span>Prompt engineering</span><span>RAG</span><span>LangChain</span><span>ChromaDB</span><span>Groq API</span></div></div>
+<div class="card"><h3>Development</h3><div class="tags"><span>Python</span><span>Node.js</span><span>Express</span><span>React</span><span>Vite</span><span>Flutter (course)</span></div></div>
+<div class="card"><h3>Automation &amp; design</h3><div class="tags"><span>Make.com</span><span>Webhooks</span><span>UI design</span><span>Glassmorphism</span></div></div>
+<div class="card"><h3>Languages</h3><div class="tags"><span>Malayalam (native)</span><span>Tamil</span><span>English</span></div></div>
+</div>
+</section>
+
+<section id="experience" class="reveal">
+<h2>Work <span>experience</span></h2>
+<div class="tl">
+<div class="card"><div class="when">20 Apr – 27 May 2026</div><h3>Generative AI Intern · Bluekode Consulting</h3><p>Built a RAG-based AI agent for student performance monitoring, working with large language models and prompt engineering.</p></div>
+<div class="card"><div class="when">5 – 20 May 2025</div><h3>Python with AI Intern · Accent Techno Soft (ATS)</h3><p>Practised Python with AI frameworks, using Python libraries for data processing and AI-based task automation.</p></div>
+</div>
+</section>
+
+<section id="education" class="reveal">
+<h2>My <span>education</span></h2>
+<div class="tl">
+<div class="card"><div class="when">Expected 2027</div><h3>B.Sc. Information Technology</h3><p>Sri Ramakrishna College of Arts &amp; Science (Autonomous), Coimbatore · CGPA 7.2</p></div>
+<div class="card"><div class="when">2023 – 2024</div><h3>Higher Secondary Certificate (HSC)</h3><p>Jaycee Hr. Sec. School, Coimbatore · 86%</p></div>
+</div>
+</section>
+
+<section id="certs" class="reveal">
+<h2>Certificates &amp; <span>workshops</span></h2>
+<div class="grid">
+<div class="card"><div class="when">May 2026</div><h3>Internship: RAG-based AI Agent</h3><p>Bluekode Consulting</p></div>
+<div class="card"><div class="when">Apr 2026</div><h3>Cyber Security Issues and Threats</h3><p>Hackup Technology · Value Added Course</p></div>
+<div class="card"><div class="when">Jan 2026</div><h3>Mobile App Development using Flutter</h3><p>Accent Techno Soft · Value Added Course</p></div>
+<div class="card"><div class="when">Feb 2026</div><h3>Creative Scholarship Exam</h3><p>Frameboxx Coimbatore · Participation</p></div>
+<div class="card"><div class="when">Aug 2025</div><h3>Design Thinking Leadership Workshop</h3><p>Dept. of Information Technology, SRCAS</p></div>
+<div class="card"><div class="when">Jun 2025</div><h3>Yoga Education (30 hours)</h3><p>Hari Yogalayam · Value Added Course</p></div>
+</div>
+</section>
+
+<section id="contact" class="reveal">
+<h2>Let’s <span>connect</span></h2>
+<div class="card" style="max-width:520px">
+<p>Open to internships and junior roles in AI and web development.</p>
+<div class="btns" style="margin-top:12px"><a class="btn pri" href="mailto:akshay78181517@gmail.com">Email me</a><a class="btn" href="#">LinkedIn</a><a class="btn" href="#">GitHub</a></div>
+</div>
+<footer>© 2026 Akshay P · Coimbatore, India</footer>
+</section>
+
+<div id="bgpick"><div id="bgpanel"></div><button class="btn" id="bgbtn" aria-expanded="false">✨ Background</button></div>
+
+<script>
+/* reveal on scroll */
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('show');io.unobserve(x.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* profile photo preview (local only; send the photo to have it embedded permanently) */
+const av=document.getElementById('avatar'),pf=document.getElementById('pfile'),pi=document.getElementById('pimg');
+av.addEventListener('click',()=>pf.click());
+pf.addEventListener('change',()=>{const f=pf.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{pi.src=r.result;pi.style.display='block';document.getElementById('ini').style.display='none'};r.readAsDataURL(f)});
+
+/* live backgrounds */
+const cv=document.getElementById('bg'),c=cv.getContext('2d');
+const MODES=[['particles','Particles'],['aurora','Aurora'],['matrix','Matrix'],['stars','Starfield'],['waves','Waves'],['none','None']];
+let W,H,mode='particles',raf=0,P=[],mx=-999,my=-999,bgc='#07070d';
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const AC='#ff3b5c',AC2='#7c5cff';
+try{const s=localStorage.getItem('bgmode');if(s&&MODES.some(m=>m[0]===s))mode=s}catch(e){}
+function clr(a){c.globalAlpha=a;c.fillStyle=bgc;c.fillRect(0,0,W,H);c.globalAlpha=1}
+function init(){
+  clr(1);P=[];
+  if(mode==='particles'){const n=Math.min(90,(W*H/15000)|0);for(let i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6})}
+  if(mode==='aurora'){const cols=['255,59,92','124,92,255','46,229,157','255,140,60'];for(let i=0;i<4;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.max(W,H)*.35,vx:(Math.random()-.5)*.8,vy:(Math.random()-.5)*.8,c:cols[i]})}
+  if(mode==='matrix'){for(let i=0;i<Math.ceil(W/16);i++)P.push(Math.random()*H/16)}
+  if(mode==='stars'){for(let i=0;i<260;i++)P.push({x:(Math.random()-.5)*W,y:(Math.random()-.5)*H,z:Math.random()*W})}
+}
+function size(){
+  const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
+  cv.width=W*d;cv.height=H*d;c.setTransform(d,0,0,d,0,0);
+  bgc=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()||'#07070d';init();
+}
+function draw(t){
+  if(mode==='particles'){
+    clr(1);
+    for(const p of P){
+      p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      const dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy);if(d<110){p.x+=dx/d*1.5;p.y+=dy/d*1.5}
+      c.fillStyle=AC;c.beginPath();c.arc(p.x,p.y,2,0,6.3);c.fill();
+    }
+    for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){
+      const d=Math.hypot(P[i].x-P[j].x,P[i].y-P[j].y);
+      if(d<130){c.globalAlpha=(1-d/130)*.5;c.strokeStyle=AC2;c.beginPath();c.moveTo(P[i].x,P[i].y);c.lineTo(P[j].x,P[j].y);c.stroke();c.globalAlpha=1}
+    }
+  }else if(mode==='aurora'){
+    clr(1);
+    for(const b of P){
+      b.x+=b.vx;b.y+=b.vy;if(b.x<0||b.x>W)b.vx*=-1;if(b.y<0||b.y>H)b.vy*=-1;
+      const g=c.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+      g.addColorStop(0,'rgba('+b.c+',.4)');g.addColorStop(1,'rgba('+b.c+',0)');
+      c.fillStyle=g;c.fillRect(0,0,W,H);
+    }
+  }else if(mode==='matrix'){
+    clr(.1);c.font='15px monospace';c.fillStyle=AC;
+    for(let i=0;i<P.length;i++){
+      c.fillText(String.fromCharCode(0x30A0+Math.random()*96),i*16,P[i]*16);
+      if(P[i]*16>H&&Math.random()>.975)P[i]=0;P[i]+=1;
+    }
+  }else if(mode==='stars'){
+    clr(.3);const cx=W/2,cy=H/2;
+    for(const s of P){
+      const px=s.x/s.z*W+cx,py=s.y/s.z*W+cy;s.z-=4;
+      if(s.z<1||px<0||px>W||py<0||py>H){s.x=(Math.random()-.5)*W;s.y=(Math.random()-.5)*H;s.z=W;continue}
+      const nx=s.x/(s.z+14)*W+cx,ny=s.y/(s.z+14)*W+cy;
+      c.strokeStyle=AC2;c.lineWidth=Math.max(.5,(1-s.z/W)*2.4);c.beginPath();c.moveTo(nx,ny);c.lineTo(px,py);c.stroke();
+    }
+    c.lineWidth=1;
+  }else if(mode==='waves'){
+    clr(1);const cols=[AC,AC2,'#2ee59d'];
+    for(let k=0;k<3;k++){
+      c.globalAlpha=.22;c.fillStyle=cols[k];c.beginPath();c.moveTo(0,H);
+      for(let x=0;x<=W;x+=12)c.lineTo(x,H*(.62+k*.1)+Math.sin(x/(160+k*60)+t/(1400-k*250))*38);
+      c.lineTo(W,H);c.closePath();c.fill();c.globalAlpha=1;
+    }
+  }else{clr(1)}
+}
+function loop(t){draw(t);raf=requestAnimationFrame(loop)}
+function start(){cancelAnimationFrame(raf);init();if(reduce||mode==='none'){draw(0);return}raf=requestAnimationFrame(loop)}
+addEventListener('resize',()=>{size();start()});
+addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(raf);else start()});
+matchMedia('(prefers-color-scheme:light)').addEventListener('change',()=>{setTimeout(()=>{size();start()},50)});
+
+/* picker */
+const panel=document.getElementById('bgpanel'),bbtn=document.getElementById('bgbtn');
+MODES.forEach(m=>{const b=document.createElement('button');b.textContent=m[1];b.dataset.m=m[0];if(m[0]===mode)b.className='on';
+  b.onclick=()=>{mode=m[0];panel.querySelectorAll('button').forEach(x=>x.className=x.dataset.m===mode?'on':'');try{localStorage.setItem('bgmode',mode)}catch(e){}start()};panel.appendChild(b)});
+bbtn.onclick=()=>{const o=panel.classList.toggle('open');bbtn.setAttribute('aria-expanded',o)};
+size();start();
+</script>
+</body>
+</html>
